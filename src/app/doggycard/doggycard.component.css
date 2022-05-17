@@ -1,0 +1,11 @@
+.example-card {
+    max-width: 45vw;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://cdn0.iconfinder.com/data/icons/wildlife-2/66/dog_mouth_smile_tongue_pet-512.png');
+    background-size: cover;
+    border: 2px solid black;
+  }
