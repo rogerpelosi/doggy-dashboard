@@ -1,0 +1,41 @@
+.home{
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.logo h1{
+    color: purple;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.logo h2{
+    color: rgb(189, 33, 189);
+    font-size: 2em;
+    font-weight: 500;
+}
+
+img{
+    width: auto;
+    height: 35vh;
+}
+
+.about{
+    /* width: 50%; */
+    width: 45vw;
+    text-align: center;
+}
+
+.about h3{
+    font-size: 2em;
+    font-style: italic;
+}
+
+.about a{
+    color:rgb(189, 33, 189);
+    text-decoration: none;
+    font-size: 1.25em;
+}

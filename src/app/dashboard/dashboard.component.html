@@ -1,3 +1,42 @@
+<section class="form-container">
+    <mat-expansion-panel hideToggle class="input-panel">
+
+        <p *ngIf="error" color="accent">{{error}}</p>
+    
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon color="primary">add</mat-icon>
+            Add Doggy
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+    
+        <form class="hidden-elements" [formGroup]="newDogForm" (ngSubmit)="formSubmission()">
+            <mat-form-field appearance="fill" class="m-4">
+                <input matInput type="text" placeholder="ID" formControlName="id">
+                <mat-label>add ID</mat-label>
+                <mat-hint>unique identifier</mat-hint>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill" class="m-4">
+                <input matInput type="text" placeholder="Breed" formControlName="breed">
+                <mat-label>add breed</mat-label>
+                <mat-hint>type of dog</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="m-4">
+                <input matInput type="text" placeholder="Name" formControlName="name">
+                <mat-label>add Name</mat-label>
+                <mat-hint>dog's name</mat-hint>
+            </mat-form-field>
+          
+        
+            <button mat-raised-button color="accent" [disabled]="newDogForm.invalid">done</button>
+            <!-- <button mat-raised-button color="accent" [disabled]="newNoteForm.invalid">all done</button> -->
+        </form>
+    
+    </mat-expansion-panel>
+</section>
+
 <section class="dog-container">
     <app-doggycard *ngFor="let oneDog of doggyArr" [oneDog]="oneDog"></app-doggycard>
 </section>

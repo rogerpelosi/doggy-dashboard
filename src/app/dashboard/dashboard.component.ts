@@ -15,7 +15,9 @@ export class DashboardComponent implements OnInit {
     private formBuilder: FormBuilder){}
 
   doggyArr: Doggy[] = [];
-  newDog: Doggy;
+  newDog: Doggy = new Doggy();
+
+  error?: string;
 
   newDogForm: FormGroup = this.formBuilder.group({
     id: this.formBuilder.control('', [Validators.required]),
@@ -26,11 +28,32 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.doggyService.getDogs().subscribe({
       next: dogs=>{
-        this.doggyArr = dogs;
+        this.doggyArr = dogs.reverse();
         console.log(dogs);
       },
-      error: na=>console.log(na)
+      error: na=>{
+        console.log(na.error);
+      }
     })
+  }
+
+  formSubmission(){
+    this.newDog.id = this.newDogForm.value['id'];
+    this.newDog.breed = this.newDogForm.value['breed'];
+    this.newDog.name = this.newDogForm.value['name'];
+    this.doggyService.addDog(this.newDog).subscribe({
+      next: success=>{
+        console.log(success);
+        this.error = '';
+        this.doggyArr.unshift(success);
+        this.newDogForm.reset();
+      },
+      error: failure=>{
+        console.log(failure);
+        this.error = failure.error;
+      }
+    })
+    console.log(this.newDog);
   }
 
 }

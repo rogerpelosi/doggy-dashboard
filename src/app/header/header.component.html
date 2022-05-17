@@ -5,10 +5,12 @@
         Doggy Dashboard
     </span>
 
-    <span class="navigation-links">
-        <a href="">home</a>
-        <a href="">about</a>
-    </span>
+    <nav class="navigation-links">
+        <a [routerLink]="['login']">login</a>
+        <a [routerLink]="['signup']">signup</a>
+        <a [routerLink]="['home']">home</a>
+        <a [routerLink]="['dashboard']">dashboard</a>
+    </nav>
 
     <button (click)="logout()" mat-flat-button color="primary">logout</button>
 

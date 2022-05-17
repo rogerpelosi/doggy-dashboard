@@ -10,15 +10,43 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatExpansionModule} from '@angular/material/expansion';
 
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';import { HttpClientModule } from '@angular/common/http';
+
+import {Routes, RouterModule} from '@angular/router';
+
 import { DoggycardComponent } from './doggycard/doggycard.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingComponent } from './landing/landing.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
+const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'home',
+    component: LandingComponent
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  }
+]
 
 @NgModule({
   declarations: [
@@ -27,7 +55,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeaderComponent,
     FooterComponent,
     LandingComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +68,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatExpansionModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
