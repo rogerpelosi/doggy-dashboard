@@ -1,1 +1,41 @@
-<p>signup works!</p>
+<section class="login-container">
+    <h2>signup to start using your own dashboard!</h2>
+    <!-- <p *ngIf="error" color="accent">{{error}}</p> -->
+    <form [formGroup]="signupForm" class="login-form">
+
+        <mat-form-field appearance="outline">
+            <input matInput 
+                   type="text" 
+                   placeholder="name" 
+                   formControlName="name"
+            >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <input matInput 
+                   type="username" 
+                   placeholder="username" 
+                   formControlName="username"
+            >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <input matInput 
+                   type="password" 
+                   placeholder="password" 
+                   formControlName="password"
+            >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <input matInput 
+                   type="password" 
+                   placeholder="password" 
+                   formControlName="passwordReentry"
+            >
+        </mat-form-field>
+    
+        <button mat-raised-button color="accent" [disabled]="signupForm.invalid" (click)="signup()">submit</button>
+    
+    </form>
+</section>

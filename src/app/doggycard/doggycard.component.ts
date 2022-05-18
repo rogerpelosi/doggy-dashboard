@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
-import { Doggy } from 'src/doggy';
-import { Image } from 'src/image';
-import { DoggyService } from '../doggy.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Doggy } from '../model/doggy';
+import { Image } from '../model/image';
+import { DoggyService } from '../service/doggy.service';
 
 @Component({
   selector: 'app-doggycard',
@@ -16,6 +16,8 @@ export class DoggycardComponent implements OnInit {
     private httpClient: HttpClient){}
 
   @Input() oneDog:Doggy;
+
+  @Output() handleDelete: EventEmitter<number> = new EventEmitter<number>();
 
   img: Image = new Image();
 
@@ -38,9 +40,16 @@ export class DoggycardComponent implements OnInit {
 
   delete(){
     console.log(`deleting ${this.oneDog.id}`);
+    let id:number = this.oneDog.id;
     this.doggyService.deleteDog(this.oneDog.id).subscribe({
-      next: success=>console.log(success),
-      error: failure=>console.log(failure)
+      next: success=>{
+        this.handleDelete.emit(id)},
+      error: failure=>{
+        console.log(failure.error.text);
+        if(failure.error.text == 'Dog Deleted'){
+          this.handleDelete.emit(id)
+        }
+      }
     })
   }
 

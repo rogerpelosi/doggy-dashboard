@@ -1,10 +1,14 @@
 <section class="login-container">
+
+    <h2>login to see your dashboard!</h2>
+    <p *ngIf="error" color="accent">{{error}}</p>
+
     <form [formGroup]="loginForm" class="login-form">
 
         <mat-form-field appearance="outline">
             <input matInput 
                    type="username" 
-                   placeholder="username" 
+                   placeholder="enter username" 
                    formControlName="username"
             >
         </mat-form-field>
@@ -12,7 +16,7 @@
         <mat-form-field appearance="outline">
             <input matInput 
                    type="password" 
-                   placeholder="password" 
+                   placeholder="enter password" 
                    formControlName="password"
             >
         </mat-form-field>
@@ -20,4 +24,5 @@
         <button mat-raised-button color="accent" [disabled]="loginForm.invalid" (click)="login()">submit</button>
     
     </form>
+
 </section>

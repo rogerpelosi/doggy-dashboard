@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Doggy } from 'src/doggy';
-import { DoggyService } from '../doggy.service';
+import { Doggy } from 'src/app/model/doggy';
+import { DoggyService } from '../service/doggy.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -53,7 +53,10 @@ export class DashboardComponent implements OnInit {
         this.error = failure.error;
       }
     })
-    console.log(this.newDog);
+  }
+
+  filterDeletedDog(id:number){
+    this.doggyArr = this.doggyArr.filter(dog=>dog.id !== id);
   }
 
 }

@@ -1,11 +1,22 @@
 .login-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
     width: auto;
     height: 45vh;
+    margin-top: 15%;
+}
+
+.heading{
+    display: flex;
+    flex-direction: row;
+}
+
+.login-container h2{
+    color: indigo;
+    font-size: 2em;
 }
 
 .login-form{
@@ -16,6 +27,4 @@
     align-items: center;
 }
 
-mat-form-field{
-    font-size: 3vw;
-}
+

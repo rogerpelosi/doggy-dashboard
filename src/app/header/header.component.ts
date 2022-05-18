@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../service/authentication.service';
+import { RoutingService } from '../service/routing.service';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private routing: RoutingService,
+    private auth: AuthenticationService){}
 
   ngOnInit(): void {
   }
 
   logout(){
     console.log('log out invoked!');
+    this.auth.setToken('invalid.user');
+    this.routing.loginRoute();
   }
 
 }
