@@ -1,0 +1,14 @@
+.doggy-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.doggy-container img{
+    width: 300px;
+    height: auto;
+    margin-bottom: 15px;
+}
+

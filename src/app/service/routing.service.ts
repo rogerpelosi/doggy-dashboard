@@ -24,4 +24,9 @@ export class RoutingService {
     this.route.navigate(['signup']);
   }
 
+  doggyRoute(doggyId:number){
+    console.log(`ID of ${doggyId} from doggyRoute()`);
+    this.route.navigate(['doggy', doggyId]);
+  }
+
 }

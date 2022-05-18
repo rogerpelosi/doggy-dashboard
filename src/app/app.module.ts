@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';import { HttpClientModule } from '@angular/common/http';
 
@@ -24,6 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CanactivateGuard } from './guards/canactivate.guard';
+import { DoggyeditComponent } from './doggyedit/doggyedit.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,11 @@ const routes: Routes = [
     component: LandingComponent
   },
   {
+    path: 'doggy/:doggyId',
+    component: DoggyeditComponent,
+    canActivate: [CanactivateGuard]
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -59,7 +66,8 @@ const routes: Routes = [
     LandingComponent,
     DashboardComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    DoggyeditComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +79,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
+    MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

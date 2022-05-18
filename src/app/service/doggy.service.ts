@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Doggy } from 'src/app/model/doggy';
+import { Image } from '../model/image';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +31,9 @@ export class DoggyService {
   deleteDog(id: number){
     return this.httpClient.delete(`http://localhost:9000/api/v1/dogs/${id}`);
   }
+
+  getImg(): Observable<Image>{
+    return this.httpClient.get<Image>(`https://dog.ceo/api/breeds/image/random`);
+  }
+
 }
