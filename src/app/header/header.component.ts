@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     console.log('log out invoked!');
-    this.auth.setToken('invalid.user');
+    this.auth.removeToken();
     this.routing.loginRoute();
   }
 
