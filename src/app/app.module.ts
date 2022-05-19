@@ -27,6 +27,8 @@ import { SignupComponent } from './signup/signup.component';
 import { CanactivateGuard } from './guards/canactivate.guard';
 import { DoggyeditComponent } from './doggyedit/doggyedit.component';
 
+import {MatDialogModule} from '@angular/material/dialog';
+
 const routes: Routes = [
   {
     path: 'login',
@@ -83,7 +85,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

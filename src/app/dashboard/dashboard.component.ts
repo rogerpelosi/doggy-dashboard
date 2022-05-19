@@ -59,4 +59,8 @@ export class DashboardComponent implements OnInit {
     this.doggyArr = this.doggyArr.filter(dog=>dog.id !== id);
   }
 
+  filterUpdatedDog(updatedDog:Doggy){
+    console.log(updatedDog);
+  }
+
 }

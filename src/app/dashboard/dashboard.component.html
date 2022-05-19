@@ -38,5 +38,5 @@
 </section>
 
 <section class="dog-container">
-    <app-doggycard *ngFor="let oneDog of doggyArr" [oneDog]="oneDog" (handleDelete)="filterDeletedDog($event)"></app-doggycard>
+    <app-doggycard *ngFor="let oneDog of doggyArr" [oneDog]="oneDog" (handleDelete)="filterDeletedDog($event)" (handleUpdate)="filterUpdatedDog($event)"></app-doggycard>
 </section>

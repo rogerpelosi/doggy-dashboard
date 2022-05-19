@@ -31,4 +31,8 @@ export class AuthenticationService {
     return localStorage.getItem('bearerToken');
   }
 
+  removeToken(){
+    localStorage.clear();
+  }
+
 }

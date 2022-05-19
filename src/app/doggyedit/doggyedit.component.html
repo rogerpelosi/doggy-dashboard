@@ -1,7 +1,24 @@
 <div class="doggy-container">
-    <h1>{{doggy.name}}</h1>
-    <h2>{{doggy.breed}}</h2>
-    <mat-divider [inset]="true"></mat-divider>
-    <img src={{img}} alt="">
-    <button mat-raised-button (click)="back()">back</button>
+    <form class="hidden-elements" [formGroup]="editDogForm" (ngSubmit)="edit()">
+        <mat-form-field appearance="fill" class="m-4">
+            <input matInput type="text" placeholder="ID" formControlName="id">
+            <mat-label>add ID</mat-label>
+            <mat-hint>unique identifier</mat-hint>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" class="m-4">
+            <input matInput type="text" placeholder="Breed" formControlName="breed">
+            <mat-label>add breed</mat-label>
+            <mat-hint>type of dog</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="m-4">
+            <input matInput type="text" placeholder="Name" formControlName="name">
+            <mat-label>add Name</mat-label>
+            <mat-hint>dog's name</mat-hint>
+        </mat-form-field>
+      
+    
+        <button mat-raised-button color="accent" [disabled]="editDogForm.invalid">done</button>
+    </form>
 </div>

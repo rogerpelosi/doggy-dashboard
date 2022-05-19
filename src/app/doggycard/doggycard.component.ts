@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DoggyeditComponent } from '../doggyedit/doggyedit.component';
 import { Doggy } from '../model/doggy';
 import { Image } from '../model/image';
 import { DoggyService } from '../service/doggy.service';
@@ -15,11 +17,14 @@ export class DoggycardComponent implements OnInit {
   constructor(
     private doggyService: DoggyService,
     private httpClient: HttpClient,
-    private routing: RoutingService){}
+    private routing: RoutingService,
+    private dialog: MatDialog){}
 
   @Input() oneDog:Doggy;
 
   @Output() handleDelete: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output() handleUpdate: EventEmitter<Doggy> = new EventEmitter<Doggy>();
 
   img: Image = new Image();
 
@@ -33,7 +38,12 @@ export class DoggycardComponent implements OnInit {
 
   edit(){
     console.log(`editing ${this.oneDog.id}`);
-    this.routing.doggyRoute(this.oneDog.id);
+    // this.handleUpdate.emit();
+    // this.routing.doggyRoute(this.oneDog.id);
+    this.dialog.open(DoggyeditComponent, {
+      width: '250px',
+      data: {dog: this.oneDog, func: this.handleUpdate}
+    }).afterClosed().subscribe(()=>{this.ngOnInit()})
   }
 
   delete(){
